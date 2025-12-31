@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  ltesniffer:
+    build:
+      context: .
+      args:
+        UHD_BRANCH: "main"   # 필요시 UHD_4.x.x.x 태그로 고정 권장
+        LTESNIFFER_REF_MAIN: "main"
+        LTESNIFFER_REF_MULTI: "LTESniffer-multi-usrp"
+    container_name: ltesniffer
+    privileged: true
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    volumes:
+      - .:/workspace
+      - uhd_images:/usr/local/share/uhd/images
+    working_dir: /workspace
+    tty: true
+    stdin_open: true
+
+volumes:
+  uhd_images:
