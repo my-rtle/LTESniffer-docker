@@ -161,6 +161,13 @@ make -j4
 ```
 
 ---
+## srsRAN 추가 설정
+빌드 디렉토리 들어가서 
+```
+sudo make install
+srsran_install_configs.sh user
+```
+하기
 
 ## Run LTESniffer
 
